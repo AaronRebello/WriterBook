@@ -1,0 +1,25 @@
+   
+  <h1 class="display-2 font1">Stories</h1>
+  <center>
+    <div class="row">
+      {{#each data}}
+      <div class="col-sm-4">
+        <div class="card ">
+          <div class="card-body">
+           {{{editIcon user ../user _id}}}         
+    <h5 class="card-title title1">{{title}}</h5>
+            <div class="div3"><img src="{{user.image}}" class="circle responsive-img img-small" style="height:30px;">
+            {{!-- {{user.name}} --}}
+             <a href="/user/{{id}}">{{user.name}}</a>
+            </div>
+
+            <p class="card-text border-bottom">{{stripTags (truncate description 150)}}</p>
+            <a href="/show/{{_id}}" class="btn btn-primary">CONTINUE READING</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+  </center>
+

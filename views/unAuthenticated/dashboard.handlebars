@@ -1,0 +1,34 @@
+
+<h3 style="color: cadetblue;">Welcome {{name}}</h3>
+<h2 class="font1" >Your Stories</h2>
+{{#if data}}
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+        <tr>
+          <td><a href="/show/{{id}}">{{title}}</a></td>
+          <td>{{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}</td>
+          <td><span class="dash-status">{{status}}</span></td>
+          <td>
+            <a class="btn left-align" href="/edit/content/{{_id}}" ><i class="fa fa-pencil"></i> Edit</a>
+
+            <form action="/data/{{id}}?_method=DELETE" method="post" id="delete-form">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn red" style="margin-top: 10px;" ><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+            </form>
+          </td>
+        </tr>
+      {{/each}} 
+    </tbody>
+  </table>
+{{else}}
+  <p>You have not created any stories yet</p>
+{{/if}}

@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-9 s12 m8">
+    <h3>{{data.title}}
+      <small>{{{editIcon data.user user data._id false}}}</small>
+    </h3>
+    <div class="card story">
+      <div class="card-content">
+        <span class="card-title">{{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}</span>
+        {{{data.description}}}
+      </div>
+    </div>
+
+
+    {{#if data.commentAllowance}}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title"><i class="fa fa-comment-o" aria-hidden="true"></i></span>
+        {{#if user}}
+        <form action="/comments/{{data.id}}" method="POST">
+          <div class="input-field">
+            <textarea name="commentBody" class="materialize-textarea"></textarea>
+            <label> Add a comment...</label>
+          </div>
+          <input type="submit" value="POST" class="btn">
+        </form>
+        {{else}}
+        <p>Please <a href="/auth/google">log</a> in to leave a comment</p>
+        {{/if}}
+      </div>
+    </div>
+
+    {{#each data.comments}}
+    <div class="card">
+      <div class="card-content">
+        {{!-- <form action="/data.comments/{{_id}}?_method=DELETE" method="post" id="delete-form">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn red mt-4" style="float: right;"><i class="fa fa-trash "
+              aria-hidden="true"></i></button>
+        </form> --}}
+
+        <h5>{{commentBody}}</h5>
+
+        <div class="chip" style="width: 150px;">
+          <img src="{{commentingUser.image}}">
+          <p>{{commentingUser.name}}</p>
+          {{!-- <a href="/stories/user/{{commentingUser.id}}">
+            {{commentingUser.firstName}} {{commentingUser.lastName}}
+          </a> --}}
+        </div>
+        <br>
+        <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
+      </div>
+    </div>
+    {{/each}}
+    {{/if}}
+  </div>
+
+  <div class="col-3 s12 m4 col1">
+    <div class="card center-align">
+      <div class="card-content">
+        <span class="card-title">{{data.user.name}}</span>
+        <img src="{{data.user.image}}" class="circle responsive-img img-small" style="height: 150px;">
+      </div>
+      <div class="card-action">
+        <a href="/user/{{data.user.id}}">More From {{data.user.name}}</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>

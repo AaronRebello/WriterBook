@@ -1,0 +1,44 @@
+{{!-- <div class="container" style="height: 900px;"> --}}
+  <h1 class="font1">Edit Story</h1>
+  
+  <form action="/edit/{{data._id}}?_method=PUT" method="POST">
+   <input type="hidden" name="_method" value="PUT">
+ <div class="form-group">
+      <label for="formGroupExampleInput">Title</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="title" value="{{data.title}}">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Status</label>
+      <select class="custom-select" name="status">
+        {{!-- <option selected> select </option> --}}
+        <option >Public</option>
+        <option >Private</option>
+      </select>
+    </div>
+
+    {{!-- <div class="row">
+      <p>
+        <input type="checkbox" name="allowComments" class="filled-in" id="filled-in-box">
+        <label for="filled-in-box">Allow Comments</label>
+      </p>
+    </div> --}}
+
+    <p>
+      <label>
+        <input type="checkbox" name="allowComments" />
+        <span>Allow Comments</span>
+      </label>
+    </p>
+
+    <h5>Tell Us Your Story</h5>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"></label>
+      <textarea class="form-control" id="body" name="body" rows="8">{{data.description}} </textarea>
+    </div>
+
+    <button type="submit" value="save" class="btn "><i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i>Save</button>
+    <a href="/dashboard" class="btn" style="background-color:red;"><i class="fa fa-chevron-left mr-1" aria-hidden="true"></i>Back</a>
+
+   
+{{!-- </div> --}}
+{{!-- </form> --}}
