@@ -18,7 +18,7 @@ const {
 
 const app = express();
 
-const PORT = 5000
+const PORT = process.env || 5000;
 
 // ******* in Terminal to run server - npm run server , node server.js **********
 
