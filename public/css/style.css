@@ -9,9 +9,10 @@ body {
   height: 80px;
 }
 
-/* @media all and (max-width: 500px){
-        .publi{display: none;}
-    } */
+@media all and (max-width: 500px){
+        .publi i{margin-top: 15px;}
+        
+      }
 
 /************************ add_btns**************************** */
 
@@ -31,15 +32,14 @@ body {
   font-size: 16px;
 }
 
-@media all and(max-width:500px) {
+@media all and (max-width:500px) {
   .start {
     text-align: center;
     height: 1000px;
   
   }
-  .txt {
-    text-align: center;
-  }
+  
+  .div1{font-size: 60px;}
 }
 
 /* *************************************Newsfeed/index****************************************/
@@ -138,6 +138,11 @@ body {
   .fcol1 p{display: none;}
 
   .fcol2 h5{display: none;}
+
+  .fadd{font-size: 17px;}
+
+.fli1{font-size: 17px;}
+
   .fli2{display: none;}
 
   .fli3{display: none;}
